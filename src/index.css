@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(12px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(12px) rotate(-360deg); }
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cosmic-bg {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background-attachment: fixed;
+  transition: all 0.3s ease;
+}
+
+.cosmic-bg.light {
+  background: radial-gradient(ellipse at bottom, #4B6CB7 0%, #182848 100%);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 1s infinite;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.orbiting {
+  animation: orbit 4s linear infinite;
+}
+
+.cosmic-border {
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #FF1E1E, #FF9C1E, #FFF51E, #1EFF1E, #1EFFF3, #1E56FF, #FF1E1E);
+  border-image-slice: 1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.glow {
+  box-shadow: 0 0 15px rgba(123, 97, 255, 0.5);
+}
+
+.cosmic-text {
+  background: linear-gradient(to right, #FF1E1E, #FF9C1E, #FFF51E, #1EFF1E, #1EFFF3, #1E56FF);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: float 4s ease-in-out infinite;
+}
+
+.cosmic-text-rainbow {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0080ff,
+    #7f00ff,
+    #ff0080,
+    #ff0000
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 6s linear infinite;
+  font-size: 3.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
